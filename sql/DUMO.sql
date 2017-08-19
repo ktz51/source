@@ -1,5 +1,3 @@
--- write by alexsey rebouças
---orientador fred jasein
 -- MySQL dump 10.13  Distrib 5.5.27, for Win32 (x86)
 
 --
