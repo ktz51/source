@@ -1,12 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `gdx` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-USE `gdx`;
-
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- write by alexsey rebouças
+--orientador fred jasein
+-- MySQL dump 10.13  Distrib 5.5.27, for Win32 (x86)
 
 --
 
--- Host: 127.0.0.1    Database: gdx
+-- Host: localhost    Database: gdx
 
 -- ------------------------------------------------------
 
@@ -77,7 +75,7 @@ LOCK TABLES `morador` WRITE;
 
 /*!40000 ALTER TABLE `morador` DISABLE KEYS */;
 
-INSERT INTO `morador` VALUES ('brunno','m','1990-09-09','cachorro',1),('mariana','f','1992-03-04','ratinho',2),('karol','f','1980-03-04','a1b2c3',3),('lucas','m','1980-03-04','banco',4),('jéssica','f','1980-03-04','escolhacerta',5),('marcão','m','1980-03-04','nananenem',6),('joão','m','1980-03-04','windwos',7),('júnior','m','1980-03-04','linux',8),('bianca','f','1980-03-04','bibrotherbrasil',9);
+INSERT INTO `morador` VALUES ('brunno','m','1990-09-09','cachorro',1),('mariana','f','1992-03-04','ratinho',2),('karol','f','1980-03-04','a1b2c3',3),('lucas','m','1980-03-04','banco',4),('halie','f','1980-03-04','escolhacerta',5),('carlos','m','1980-03-04','nananenem',6),('marcos','m','1980-03-04','windwos',7),('cleiton','m','1980-03-04','linux',8),('bianca','f','1980-03-04','bibrotherbrasil',9);
 
 /*!40000 ALTER TABLE `morador` ENABLE KEYS */;
 
@@ -147,4 +145,5 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2017-08-18 11:08:44
+-- Dump completed on 2017-08-19  9:21:45
+
