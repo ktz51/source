@@ -10,7 +10,9 @@ fi
 export GPG_TTY=`tty`
 export GPG_AGENT_INFO
 
-
+#sync gdrive with 
+cd /projects/source/source
+./gdrive.sh
 #alxsy
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
