@@ -82,7 +82,7 @@ UNLOCK TABLES;
 
 --
 
--- Table structure for table `predio`
+-- Table structure for table `sudo supredio`
 
 --
 
