@@ -1,6 +1,9 @@
 cd ~/grive
 grive sync
-#tm=`date +%Y%m%d`
-#ls -l | egrep "`date +%d`" |cut -d' ' -f9
+x="Dump`date +%Y%m%d`.sql"
 tm=$(ls --full-time | egrep "`date +%Y-%m-%d`" | cut -d' ' -f 9)
+if [ $x == $tm ];then
 mysql -u root < $tm
+else
+echo not found
+fi
