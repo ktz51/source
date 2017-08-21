@@ -1,5 +1,6 @@
 cd ~/grive
 grive sync
-tm=`date +%Y%m%d`
-mysql < Dump$tm.sql
-cp -f Dump* /projects/source/sql 
+#tm=`date +%Y%m%d`
+#ls -l | egrep "`date +%d`" |cut -d' ' -f9
+tm=$(ls --full-time | egrep "`date +%Y-%m-%d`" | cut -d' ' -f 9)
+mysql < $tm.sql cp 
