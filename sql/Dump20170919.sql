@@ -24,6 +24,57 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `gdx` /*!40100 DEFAULT CHARACTER SET la
 USE `gdx`;
 
 --
+-- Table structure for table `condominio`
+--
+
+DROP TABLE IF EXISTS `condominio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `condominio` (
+  `nome` varchar(30) DEFAULT NULL,
+  `QuantBloco` int(11) DEFAULT NULL,
+  `QuantAndar` int(11) DEFAULT NULL,
+  `QuantAPB` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `condominio`
+--
+
+LOCK TABLES `condominio` WRITE;
+/*!40000 ALTER TABLE `condominio` DISABLE KEYS */;
+INSERT INTO `condominio` VALUES ('LauraCatarina',8,10,2);
+/*!40000 ALTER TABLE `condominio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `conta`
+--
+
+DROP TABLE IF EXISTS `conta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `conta` (
+  `agua` decimal(7,2) DEFAULT NULL,
+  `luz` decimal(7,2) DEFAULT NULL,
+  `gas` decimal(7,2) DEFAULT NULL,
+  `extra` decimal(7,2) DEFAULT NULL,
+  `cond` decimal(7,2) DEFAULT NULL,
+  `gasto` decimal(7,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `conta`
+--
+
+LOCK TABLES `conta` WRITE;
+/*!40000 ALTER TABLE `conta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `conta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `morador`
 --
 
@@ -38,7 +89,8 @@ CREATE TABLE `morador` (
   `cargo` varchar(30) DEFAULT NULL,
   `sexo` varchar(30) DEFAULT NULL,
   `bloco` varchar(30) DEFAULT NULL,
-  `gasto` decimal(7,2) DEFAULT NULL
+  `gasto` decimal(7,2) DEFAULT NULL,
+  `apt` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,31 +100,8 @@ CREATE TABLE `morador` (
 
 LOCK TABLES `morador` WRITE;
 /*!40000 ALTER TABLE `morador` DISABLE KEYS */;
-INSERT INTO `morador` VALUES ('alexsey reboucas','201401104657','alexseyreboucas@icloud.com','123456','morador','masculino','2',750.50),('brunno silva santos','123456789','brunno_silva@hotmail.com','987654321','morador','masculino','3',900.50),('mariana anj','201567767899','mariannanj@hotmail.com','123456','morador','femino','3',900.50),('alexsander reboucas','201180978988','alexS@goldxengenharia.com.br','123456','morador','masculino','2',750.50),('celina rebouças','1990988987','celireboucas@gmail.com','penadeganso','morador','femino','4',2000.00),('carla souza','20981776','carla_souzz@gmail.com','2017789','morador','femino','1',750.50),('luke mendes','4546546546556','luke@lk.com','09876','morador','masculino','4',2000.00),('carlito','6567576','carlito@gmail.com','876786887','morador','masculino','2',750.50),('andreza','876786887','andreza@yahoo.com.br','123456','morador','femino','2',750.50),('ivana','23455666','ivana@celestino.com','ivana@celestino.com','morador','feminino','1',750.50),('lucas mendonça','817672545','pandinha@outlook.com','123','morador','masculino','1',750.50),('lana','978968765','laninha@live.com','laninha','morador','feminino','1',750.50),('mathews carlos','89879879','teteu@gmail.com','987654','morador','masculino','2',750.50),('yuri koboski','879887685665','yuri@kovoski.ru','7890','morador','masculino','3',900.50),('luana lins','8754465','luana_lins@gmail.com','87654','sindico','feminino','2',300.00);
+INSERT INTO `morador` VALUES ('alexsey reboucas','201401','alexseyreboucas@icloud.com','123456','morador','masculino','1',1450.00,'208'),('karo santos','201110','karol_rx@gmail.com','123456','sindico','feminino','1',1020.00,'101'),('paulo henrique','200710','pauloH@hotmail.com','123456','morador','masculino','1',950.00,'102'),('suzana hitch','201710','suzana_hitch@icloud.com','bolsonaro2018','sindico','masculino','2',1030.00,'207'),('gilberto mendes','20090889','gilberto_mendes@hotmail.com','123456','morador','masculino','2',888.00,'101'),('paulo paim','2012001','paulopaim@gmail.com','123456','morador','masculino','4',1120.00,'208'),('lucas mendes','20121010','lucas_panda@hotmail.com','bolsonaro2018','morador','masculino','1',870.00,'103'),('luiza dumount','20122020','luizaDumont@gmail.com','123456','morador','feminino','2',920.00,'103'),('alexsander reboucas','20120110','alexsander_goldx@gmail.com','123456','sindico','masculino','4',930.00,'101'),('liliande mendes','7790','liliande_hgatinha@gmail.com','12345678','morador','feminino','1',930.00,'106'),('itana celestino','7789878','itana_celestino@mail.com','123456','morador','feminino','1',1050.00,'107'),('carlos daniel','8904545667','carlos_daniel@gmail.com','123456','morador','masculino','3',3900.00,'108'),('lucas paiva','8999877789','lucas_paiva@outlook.com','123456','morador','masculino','1',1030.00,'200'),('ana paula','799867788','anapaula@gmail.com','12345678','morador','feminino','1',1040.00,'206'),('matheus pereira','20140110','matheuspereira@gmail.com','bolsonaro2018','morador','masculino','3',1000.00,'104'),('livia sales','20109090','liviasales@gmail.com','bolsonaro2018','morador','masculino','4',1000.00,'106'),('felipe lins','87778778989','felipelins@outlook.com','bolsonaro2018','morador','masculino','1',1010.00,'108');
 /*!40000 ALTER TABLE `morador` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `predio`
---
-
-DROP TABLE IF EXISTS `predio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `predio` (
-  `bloco` varchar(30) DEFAULT NULL,
-  `custo` decimal(7,2) DEFAULT NULL,
-  `gasto` decimal(7,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `predio`
---
-
-LOCK TABLES `predio` WRITE;
-/*!40000 ALTER TABLE `predio` DISABLE KEYS */;
-/*!40000 ALTER TABLE `predio` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -762,381 +791,3 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` VALUES ('localhost','root','','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'',''),('127.0.0.1','root','','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'',''),('::1','root','','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'',''),('localhost','','','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'',NULL);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `general_log`
---
-
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `general_log` (
-  `event_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `user_host` mediumtext NOT NULL,
-  `thread_id` int(11) NOT NULL,
-  `server_id` int(10) unsigned NOT NULL,
-  `command_type` varchar(64) NOT NULL,
-  `argument` mediumtext NOT NULL
-) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='General log';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `slow_log`
---
-
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `slow_log` (
-  `start_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `user_host` mediumtext NOT NULL,
-  `query_time` time NOT NULL,
-  `lock_time` time NOT NULL,
-  `rows_sent` int(11) NOT NULL,
-  `rows_examined` int(11) NOT NULL,
-  `db` varchar(512) NOT NULL,
-  `last_insert_id` int(11) NOT NULL,
-  `insert_id` int(11) NOT NULL,
-  `server_id` int(10) unsigned NOT NULL,
-  `sql_text` mediumtext NOT NULL
-) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='Slow log';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Current Database: `phpmyadmin`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `phpmyadmin` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
-
-USE `phpmyadmin`;
-
---
--- Table structure for table `pma_bookmark`
---
-
-DROP TABLE IF EXISTS `pma_bookmark`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_bookmark` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `query` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_bookmark`
---
-
-LOCK TABLES `pma_bookmark` WRITE;
-/*!40000 ALTER TABLE `pma_bookmark` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_bookmark` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_column_info`
---
-
-DROP TABLE IF EXISTS `pma_column_info`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_column_info` (
-  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_column_info`
---
-
-LOCK TABLES `pma_column_info` WRITE;
-/*!40000 ALTER TABLE `pma_column_info` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_column_info` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_designer_coords`
---
-
-DROP TABLE IF EXISTS `pma_designer_coords`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_designer_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `x` int(11) DEFAULT NULL,
-  `y` int(11) DEFAULT NULL,
-  `v` tinyint(4) DEFAULT NULL,
-  `h` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for Designer';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_designer_coords`
---
-
-LOCK TABLES `pma_designer_coords` WRITE;
-/*!40000 ALTER TABLE `pma_designer_coords` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_designer_coords` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_history`
---
-
-DROP TABLE IF EXISTS `pma_history`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_history` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sqlquery` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`,`db`,`table`,`timevalue`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_history`
---
-
-LOCK TABLES `pma_history` WRITE;
-/*!40000 ALTER TABLE `pma_history` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_history` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_pdf_pages`
---
-
-DROP TABLE IF EXISTS `pma_pdf_pages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_pdf_pages` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `page_nr` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  PRIMARY KEY (`page_nr`),
-  KEY `db_name` (`db_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_pdf_pages`
---
-
-LOCK TABLES `pma_pdf_pages` WRITE;
-/*!40000 ALTER TABLE `pma_pdf_pages` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_pdf_pages` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_recent`
---
-
-DROP TABLE IF EXISTS `pma_recent`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_recent` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_recent`
---
-
-LOCK TABLES `pma_recent` WRITE;
-/*!40000 ALTER TABLE `pma_recent` DISABLE KEYS */;
-INSERT INTO `pma_recent` VALUES ('root','[{\"db\":\"gdx\",\"table\":\"morador\"},{\"db\":\"phpmyadmin\",\"table\":\"pma_recent\"}]');
-/*!40000 ALTER TABLE `pma_recent` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_relation`
---
-
-DROP TABLE IF EXISTS `pma_relation`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_relation` (
-  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`master_db`,`master_table`,`master_field`),
-  KEY `foreign_field` (`foreign_db`,`foreign_table`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_relation`
---
-
-LOCK TABLES `pma_relation` WRITE;
-/*!40000 ALTER TABLE `pma_relation` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_relation` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_table_coords`
---
-
-DROP TABLE IF EXISTS `pma_table_coords`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_table_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
-  `x` float unsigned NOT NULL DEFAULT '0',
-  `y` float unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_table_coords`
---
-
-LOCK TABLES `pma_table_coords` WRITE;
-/*!40000 ALTER TABLE `pma_table_coords` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_table_coords` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_table_info`
---
-
-DROP TABLE IF EXISTS `pma_table_info`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_table_info` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_table_info`
---
-
-LOCK TABLES `pma_table_info` WRITE;
-/*!40000 ALTER TABLE `pma_table_info` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_table_info` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_table_uiprefs`
---
-
-DROP TABLE IF EXISTS `pma_table_uiprefs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_table_uiprefs` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `prefs` text COLLATE utf8_bin NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`username`,`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_table_uiprefs`
---
-
-LOCK TABLES `pma_table_uiprefs` WRITE;
-/*!40000 ALTER TABLE `pma_table_uiprefs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_table_uiprefs` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_tracking`
---
-
-DROP TABLE IF EXISTS `pma_tracking`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_tracking` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `version` int(10) unsigned NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_updated` datetime NOT NULL,
-  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
-  `schema_sql` text COLLATE utf8_bin,
-  `data_sql` longtext COLLATE utf8_bin,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
-  `tracking_active` int(1) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`db_name`,`table_name`,`version`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_tracking`
---
-
-LOCK TABLES `pma_tracking` WRITE;
-/*!40000 ALTER TABLE `pma_tracking` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pma_tracking` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pma_userconfig`
---
-
-DROP TABLE IF EXISTS `pma_userconfig`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pma_userconfig` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `config_data` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pma_userconfig`
---
-
-LOCK TABLES `pma_userconfig` WRITE;
-/*!40000 ALTER TABLE `pma_userconfig` DISABLE KEYS */;
-INSERT INTO `pma_userconfig` VALUES ('root','2012-07-05 15:15:30','{\"ThemeDefault\":\"pmahomme\"}');
-/*!40000 ALTER TABLE `pma_userconfig` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2017-08-27 12:20:32

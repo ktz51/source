@@ -38,7 +38,8 @@ CREATE TABLE `morador` (
   `cargo` varchar(30) DEFAULT NULL,
   `sexo` varchar(30) DEFAULT NULL,
   `bloco` varchar(30) DEFAULT NULL,
-  `gasto` decimal(7,2) DEFAULT NULL
+  `gasto` decimal(7,2) DEFAULT NULL,
+  `apt` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,7 +49,7 @@ CREATE TABLE `morador` (
 
 LOCK TABLES `morador` WRITE;
 /*!40000 ALTER TABLE `morador` DISABLE KEYS */;
-INSERT INTO `morador` VALUES ('alexsey reboucas','201401104657','alexseyreboucas@icloud.com','123456','morador','masculino','2',750.50),('brunno silva santos','123456789','brunno_silva@hotmail.com','987654321','morador','masculino','3',900.50),('mariana anj','201567767899','mariannanj@hotmail.com','123456','morador','femino','3',900.50),('alexsander reboucas','201180978988','alexS@goldxengenharia.com.br','123456','morador','masculino','2',750.50),('celina rebouças','1990988987','celireboucas@gmail.com','penadeganso','morador','femino','4',2000.00),('carla souza','20981776','carla_souzz@gmail.com','2017789','morador','femino','1',750.50),('luke mendes','4546546546556','luke@lk.com','09876','morador','masculino','4',2000.00),('carlito','6567576','carlito@gmail.com','876786887','morador','masculino','2',750.50),('andreza','876786887','andreza@yahoo.com.br','123456','morador','femino','2',750.50),('ivana','23455666','ivana@celestino.com','ivana@celestino.com','morador','feminino','1',750.50),('lucas mendonça','817672545','pandinha@outlook.com','123','morador','masculino','1',750.50),('lana','978968765','laninha@live.com','laninha','morador','feminino','1',750.50),('mathews carlos','89879879','teteu@gmail.com','987654','morador','masculino','2',750.50),('yuri koboski','879887685665','yuri@kovoski.ru','7890','morador','masculino','3',900.50),('luana lins','8754465','luana_lins@gmail.com','87654','sindico','feminino','2',300.00);
+INSERT INTO `morador` VALUES ('brunno silva santos','123456789','brunno_silva@hotmail.com','987654321','morador','masculino','3',1200.00,'103'),('mariana anj','201567767899','mariannanj@hotmail.com','123456','morador','femino','3',650.00,'102'),('alexsander reboucas','201180978988','alexS@goldxengenharia.com.br','123456','morador','masculino','2',3000.00,'102'),('celina rebouças','1990988987','celireboucas@gmail.com','penadeganso','sindico','femino','4',500.00,'100'),('carla souza','20981776','carla_souzz@gmail.com','2017789','sindico','femino','1',750.50,'102'),('luke mendes','4546546546556','luke@lk.com','09876','morador','masculino','4',2000.00,'102'),('carlito','6567576','carlito@gmail.com','876786887','morador','masculino','2',1100.00,'100'),('andreza','876786887','andreza@yahoo.com.br','123456','morador','femino','2',800.00,'101'),('ivana','23455666','ivana@celestino.com','ivana@celestino.com','morador','feminino','1',700.00,'103'),('lucas mendonça','817672545','pandinha@outlook.com','123','morador','masculino','1',600.00,'101'),('lana','978968765','laninha@live.com','laninha','morador','feminino','1',300.00,'105'),('mathews carlos','89879879','teteu@gmail.com','987654','morador','masculino','2',750.50,'106'),('yuri koboski','879887685665','yuri@kovoski.ru','7890','sindico','masculino','3',900.50,'101'),('luana lins','8754465','luana_lins@hotmail.com','87654','sindico','feminino','2',700.00,'105'),('maverick','87665443','maverick@ru.com','maverick@ru.com','morador','masculino','1',790.00,'104'),('alexsey reboucas','201401106577','alexseyreboucas@icloud.com','1234567','morador','masculino','2',900.00,'103'),('luciana camargo','20120119887890','luciana_camargo@gmail.com','123456','morador','feminino','2',790.00,'104'),('suzana hitch','89898776656','suzana_hitch@gmail.com','suzanahitch','morador','feminino','4',2200.00,'101');
 /*!40000 ALTER TABLE `morador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1139,4 +1140,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-27 12:20:32
+-- Dump completed on 2017-09-03 11:39:13

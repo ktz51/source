@@ -24,6 +24,92 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `gdx` /*!40100 DEFAULT CHARACTER SET la
 USE `gdx`;
 
 --
+-- Table structure for table `condominio`
+--
+
+DROP TABLE IF EXISTS `condominio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `condominio` (
+  `nome` varchar(30) DEFAULT NULL,
+  `QuantBloco` int(11) DEFAULT NULL,
+  `QuantAndar` int(11) DEFAULT NULL,
+  `QuantAPB` int(11) DEFAULT NULL,
+  `agua` decimal(7,2) DEFAULT NULL,
+  `luz` decimal(7,2) DEFAULT NULL,
+  `gas` decimal(7,2) DEFAULT NULL,
+  `extra` decimal(7,2) DEFAULT NULL,
+  `cond` decimal(7,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `condominio`
+--
+
+LOCK TABLES `condominio` WRITE;
+/*!40000 ALTER TABLE `condominio` DISABLE KEYS */;
+INSERT INTO `condominio` VALUES ('BosqueImperial',8,10,2,100.00,100.00,100.00,100.00,100.00);
+/*!40000 ALTER TABLE `condominio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `conta`
+--
+
+DROP TABLE IF EXISTS `conta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `conta` (
+  `agua` decimal(7,2) DEFAULT NULL,
+  `luz` decimal(7,2) DEFAULT NULL,
+  `gas` decimal(7,2) DEFAULT NULL,
+  `extra` decimal(7,2) DEFAULT NULL,
+  `cond` decimal(7,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `conta`
+--
+
+LOCK TABLES `conta` WRITE;
+/*!40000 ALTER TABLE `conta` DISABLE KEYS */;
+INSERT INTO `conta` VALUES (0.00,0.00,50.00,100.00,100.00);
+/*!40000 ALTER TABLE `conta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fatura`
+--
+
+DROP TABLE IF EXISTS `fatura`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fatura` (
+  `nome` varchar(30) DEFAULT NULL,
+  `email` varchar(60) DEFAULT NULL,
+  `data` varchar(30) DEFAULT NULL,
+  `agua` decimal(7,2) DEFAULT NULL,
+  `luz` decimal(7,2) DEFAULT NULL,
+  `cond` decimal(7,2) DEFAULT NULL,
+  `extra` decimal(7,2) DEFAULT NULL,
+  `gasto` decimal(7,2) DEFAULT NULL,
+  `gas` decimal(7,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fatura`
+--
+
+LOCK TABLES `fatura` WRITE;
+/*!40000 ALTER TABLE `fatura` DISABLE KEYS */;
+INSERT INTO `fatura` VALUES ('alexsey souza','alexseyreboucas@icloud.com','24/09/2017',110.00,100.00,100.00,100.00,460.00,50.00),('alexsey souza','alexseyreboucas@icloud.com','25/09/2017',80.00,100.00,80.00,80.00,420.00,80.00),('brunna carvalho','bruninhacah@hotmail.com','24/09/2017',80.00,100.00,80.00,80.00,420.00,80.00),('brunna carvalho','bruninhacah@hotmail.com','25/09/2017',100.00,100.00,50.00,10.00,360.00,100.00),('alexsey souza','alexseyreboucas@icloud.com','26/09/2017',0.00,0.00,100.00,100.00,250.00,50.00),('patricia fontes','patriciafontes@gmail.com','25/09/2017',100.00,110.00,100.00,100.00,460.00,50.00);
+/*!40000 ALTER TABLE `fatura` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `morador`
 --
 
@@ -32,13 +118,14 @@ DROP TABLE IF EXISTS `morador`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `morador` (
   `nome` varchar(30) NOT NULL,
-  `rg` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `pass` varchar(30) NOT NULL,
   `cargo` varchar(30) DEFAULT NULL,
   `sexo` varchar(30) DEFAULT NULL,
+  `contrato` varchar(30) DEFAULT NULL,
+  `ap` varchar(30) DEFAULT NULL,
   `bloco` varchar(30) DEFAULT NULL,
-  `gasto` decimal(7,2) DEFAULT NULL
+  `telefone` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,31 +135,8 @@ CREATE TABLE `morador` (
 
 LOCK TABLES `morador` WRITE;
 /*!40000 ALTER TABLE `morador` DISABLE KEYS */;
-INSERT INTO `morador` VALUES ('alexsey reboucas','201401104657','alexseyreboucas@icloud.com','123456','morador','masculino','2',750.50),('brunno silva santos','123456789','brunno_silva@hotmail.com','987654321','morador','masculino','3',900.50),('mariana anj','201567767899','mariannanj@hotmail.com','123456','morador','femino','3',900.50),('alexsander reboucas','201180978988','alexS@goldxengenharia.com.br','123456','morador','masculino','2',750.50),('celina rebouças','1990988987','celireboucas@gmail.com','penadeganso','morador','femino','4',2000.00),('carla souza','20981776','carla_souzz@gmail.com','2017789','morador','femino','1',750.50),('luke mendes','4546546546556','luke@lk.com','09876','morador','masculino','4',2000.00),('carlito','6567576','carlito@gmail.com','876786887','morador','masculino','2',750.50),('andreza','876786887','andreza@yahoo.com.br','123456','morador','femino','2',750.50),('ivana','23455666','ivana@celestino.com','ivana@celestino.com','morador','feminino','1',750.50),('lucas mendonça','817672545','pandinha@outlook.com','123','morador','masculino','1',750.50),('lana','978968765','laninha@live.com','laninha','morador','feminino','1',750.50),('mathews carlos','89879879','teteu@gmail.com','987654','morador','masculino','2',750.50),('yuri koboski','879887685665','yuri@kovoski.ru','7890','morador','masculino','3',900.50),('luana lins','8754465','luana_lins@gmail.com','87654','sindico','feminino','2',300.00);
+INSERT INTO `morador` VALUES ('alexsey souza','alexseyreboucas@icloud.com','123456','morador','masculino','201401','209','2','98897876'),('brunno marques','brunnomarques@outlook.com','123456','morador','masculino','8878788','105','1','987787878'),('patricia fontes','patriciafontes@gmail.com','123456','sindico','feminino','20179889','203','2','988988998'),('yuri besmenov','yuri@bk.ru','nolsonaro2018','síndico','masculino','777','103','2','70'),('juliiana souza','juliana@mail.com','777','morador','feminino','777','104','1','98999899'),('luana souza','luanaSouza@gmail.com','454545','morador','feminino','78987','101','1','339309990'),('suza souza','suzana@live.com','123456','morador','feminino','77','200','1','98787878'),('brunna carvalho','bruninhacah@hotmail.com','123456','morador','feminino','99','102','1','987675645'),('tauan martineli','tauan@goldx.com','12345','morador','masculino','909090','204','1','98787878');
 /*!40000 ALTER TABLE `morador` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `predio`
---
-
-DROP TABLE IF EXISTS `predio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `predio` (
-  `bloco` varchar(30) DEFAULT NULL,
-  `custo` decimal(7,2) DEFAULT NULL,
-  `gasto` decimal(7,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `predio`
---
-
-LOCK TABLES `predio` WRITE;
-/*!40000 ALTER TABLE `predio` DISABLE KEYS */;
-/*!40000 ALTER TABLE `predio` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1139,4 +1203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-27 12:20:32
+-- Dump completed on 2017-09-25 17:36:13

@@ -19,9 +19,95 @@
 -- Current Database: `gdx`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `gdx` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `gdx` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `gdx`;
+
+--
+-- Table structure for table `condominio`
+--
+
+DROP TABLE IF EXISTS `condominio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `condominio` (
+  `nome` varchar(30) NOT NULL,
+  `quantbloco` int(11) NOT NULL,
+  `QuantAndar` int(11) NOT NULL,
+  `QuantAPB` int(11) NOT NULL,
+  PRIMARY KEY (`nome`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `condominio`
+--
+
+LOCK TABLES `condominio` WRITE;
+/*!40000 ALTER TABLE `condominio` DISABLE KEYS */;
+INSERT INTO `condominio` VALUES ('BosqueImperial',8,10,2);
+/*!40000 ALTER TABLE `condominio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `conta`
+--
+
+DROP TABLE IF EXISTS `conta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `conta` (
+  `agua` decimal(7,2) NOT NULL,
+  `luz` decimal(7,2) NOT NULL,
+  `gas` decimal(7,2) NOT NULL,
+  `extra` decimal(7,2) NOT NULL,
+  `cond` decimal(7,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `conta`
+--
+
+LOCK TABLES `conta` WRITE;
+/*!40000 ALTER TABLE `conta` DISABLE KEYS */;
+INSERT INTO `conta` VALUES (0.00,0.00,0.00,100.00,150.00);
+/*!40000 ALTER TABLE `conta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fatura`
+--
+
+DROP TABLE IF EXISTS `fatura`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fatura` (
+  `nome` varchar(30) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `data` varchar(30) NOT NULL,
+  `agua` decimal(7,2) NOT NULL,
+  `luz` decimal(7,2) NOT NULL,
+  `cond` decimal(7,2) NOT NULL,
+  `extra` decimal(7,2) NOT NULL,
+  `gasto` decimal(7,2) NOT NULL DEFAULT '0.00',
+  `gas` decimal(7,2) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bloco` varchar(30) NOT NULL,
+  `status` varchar(30) NOT NULL DEFAULT 'pendente',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fatura`
+--
+
+LOCK TABLES `fatura` WRITE;
+/*!40000 ALTER TABLE `fatura` DISABLE KEYS */;
+INSERT INTO `fatura` VALUES ('alexsey souza','alexseyreboucas@icloud.com','24/09/2017',110.00,100.00,100.00,100.00,460.00,50.00,1,'2','pendente'),('alexsey souza','alexseyreboucas@icloud.com','25/09/2017',80.00,100.00,80.00,80.00,420.00,80.00,2,'2','pendente'),('brunna souza','brunninhacah@gmail.com','24/09/2017',80.00,100.00,80.00,80.00,420.00,80.00,3,'1','pendente'),('brunna souza','brunninhacah@gmail.com','25/09/2017',1.00,2.00,4.00,5.00,15.00,3.00,4,'1','pendente'),('alexsey souza','alexseyreboucas@icloud.com','27/09/2017',110.00,100.00,100.00,100.00,460.00,50.00,5,'2','pendente'),('brunno marques','brunnomarques@outlook.com','27/09/2017',0.00,0.00,100.00,100.00,250.00,50.00,6,'1','pendente'),('yuri koskov','yuri@bk.ru','27/09/2017',1.00,1.00,1.00,1.00,5.00,1.00,7,'2','pendente'),('yuri koskov','yuri@bk.ru','28/09/2017',0.00,0.00,0.00,100.00,150.00,50.00,8,'2','pendente'),('alexsey souza','alexseyreboucas@icloud.com','01/10/2017',120.00,122.00,100.00,100.00,542.00,100.00,10,'2','pendente'),('yuri koskov','yuri@bk.ru','01/10/2017',110.00,100.00,100.00,100.00,460.00,50.00,11,'2','pendente'),('suza souza','suzana@live.com','11/10/2017',100.00,120.00,100.00,100.00,470.00,50.00,12,'1','pendente'),('alexsey souza','alexseyreboucas@icloud.com','04/10/2017',100.00,100.00,100.00,100.00,450.00,50.00,13,'2','pago'),('alexsey souza','alexseyreboucas@icloud.com','05/10/2107',100.00,50.00,100.00,100.00,450.00,100.00,14,'2','pendente'),('lucas pandares','lucas_panda@outlook.com','06/10/2017',120.00,100.00,150.00,100.00,570.00,100.00,15,'4','pendente'),('lucas pandares','lucas_panda@outlook.com','10/10/2017',120.00,120.00,150.00,150.00,660.00,120.00,16,'4','pendente'),('brunna souza','brunninhacah@gmail.com','07/10/2017',110.00,110.00,150.00,100.00,580.00,110.00,17,'1','pendente'),('robson miller','robson_miller@gmail.com','07/10/2017',100.00,100.00,150.00,100.00,550.00,100.00,18,'3','pago'),('alexsey souza','alexseyreboucas@icloud.com','07/10/2017',11.00,110.00,15.00,100.00,247.00,11.00,19,'2','pago'),('luana souza','luanaSouza@gmail.com','08/10/2017',120.00,100.00,150.00,100.00,570.00,100.00,20,'1','pago'),('yuri koskov','yuri@bk.ru','11/10/2017',120.00,100.00,150.00,100.00,570.00,100.00,21,'2','pendente'),('luana martins','luana_martins@live.com','12/10/2017',100.00,110.00,150.00,100.00,560.00,100.00,22,'3','pendente'),('alexsey souza','alexseyreboucas@icloud.com','15/10/2017',80.00,90.00,150.00,100.00,420.00,0.00,23,'2','pago'),('yuri koskov','yuri@bk.ru','16/10/2017',100.00,100.00,150.00,100.00,450.00,0.00,24,'2','pago'),('robson miller','robson_miller@gmail.com','16/10/2017',100.00,100.00,150.00,100.00,550.00,100.00,25,'3','pago'),('brunna souza','brunninhacah@gmail.com','16/10/2017',100.00,110.00,150.00,100.00,560.00,100.00,26,'1','pago'),('lucas pandares','lucas_panda@outlook.com','16/10/2017',80.00,80.00,150.00,100.00,490.00,80.00,27,'4','pago');
+/*!40000 ALTER TABLE `fatura` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `morador`
@@ -32,13 +118,15 @@ DROP TABLE IF EXISTS `morador`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `morador` (
   `nome` varchar(30) NOT NULL,
-  `rg` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `pass` varchar(30) NOT NULL,
-  `cargo` varchar(30) DEFAULT NULL,
-  `sexo` varchar(30) DEFAULT NULL,
-  `bloco` varchar(30) DEFAULT NULL,
-  `gasto` decimal(7,2) DEFAULT NULL
+  `cargo` varchar(30) NOT NULL,
+  `sexo` varchar(30) NOT NULL,
+  `contrato` varchar(30) NOT NULL,
+  `ap` varchar(30) NOT NULL,
+  `bloco` varchar(30) NOT NULL,
+  `telefone` varchar(30) NOT NULL,
+  PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,7 +136,7 @@ CREATE TABLE `morador` (
 
 LOCK TABLES `morador` WRITE;
 /*!40000 ALTER TABLE `morador` DISABLE KEYS */;
-INSERT INTO `morador` VALUES ('alexsey reboucas','201401104657','alexseyreboucas@icloud.com','123456','morador','masculino','2',750.50),('brunno silva santos','123456789','brunno_silva@hotmail.com','987654321','morador','masculino','3',900.50),('mariana anj','201567767899','mariannanj@hotmail.com','123456','morador','femino','3',900.50),('alexsander reboucas','201180978988','alexS@goldxengenharia.com.br','123456','morador','masculino','2',750.50),('celina rebouças','1990988987','celireboucas@gmail.com','penadeganso','morador','femino','4',2000.00),('carla souza','20981776','carla_souzz@gmail.com','2017789','morador','femino','1',750.50),('luke mendes','4546546546556','luke@lk.com','09876','morador','masculino','4',2000.00),('carlito','6567576','carlito@gmail.com','876786887','morador','masculino','2',750.50),('andreza','876786887','andreza@yahoo.com.br','123456','morador','femino','2',750.50),('ivana','23455666','ivana@celestino.com','ivana@celestino.com','morador','feminino','1',750.50),('lucas mendonça','817672545','pandinha@outlook.com','123','morador','masculino','1',750.50),('lana','978968765','laninha@live.com','laninha','morador','feminino','1',750.50),('mathews carlos','89879879','teteu@gmail.com','987654','morador','masculino','2',750.50),('yuri koboski','879887685665','yuri@kovoski.ru','7890','morador','masculino','3',900.50),('luana lins','8754465','luana_lins@gmail.com','87654','sindico','feminino','2',300.00);
+INSERT INTO `morador` VALUES ('alexsey souza','alexseyreboucas@icloud.com','123456','morador','masculino','201401','209','2','98897876'),('brunna souza','brunninhacah@gmail.com','123456','morador','feminino','99','102','1','987675645'),('brunno marques','brunnomarques@outlook.com','123456','morador','masculino','8878788','105','1','987787878'),('janaina mendes','janaina_mendes@outlook.com','123456','morador','feminino','20110110','301','2','987998767'),('luana souza','luanaSouza@gmail.com','454545','morador','feminino','78987','101','1','339309990'),('luana martins','luana_martins@live.com','123456','morador','feminino','2012011046656','302','3','998786756'),('lucas pandares','lucas_panda@outlook.com','12345','morador','masculino','20130110','101','4','9989898989'),('robson miller','robson_miller@gmail.com','123456','morador','masculino','2019980990','103','3','8778787878'),('suza souza','suzana@live.com','123456','morador','feminino','77','200','1','98787878'),('yuri koskov','yuri@bk.ru','nolsonaro2018','síndico','masculino','777','105','2','987787878');
 /*!40000 ALTER TABLE `morador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,10 +148,12 @@ DROP TABLE IF EXISTS `predio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `predio` (
-  `bloco` varchar(30) DEFAULT NULL,
-  `custo` decimal(7,2) DEFAULT NULL,
-  `gasto` decimal(7,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `quantMorador` int(11) NOT NULL,
+  `bloco` varchar(30) NOT NULL,
+  `investimento` decimal(7,2) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,6 +162,7 @@ CREATE TABLE `predio` (
 
 LOCK TABLES `predio` WRITE;
 /*!40000 ALTER TABLE `predio` DISABLE KEYS */;
+INSERT INTO `predio` VALUES (4,'1',485.00,1),(3,'2',981.00,2),(2,'3',100.00,3),(1,'4',250.00,4),(0,'5',0.00,5),(0,'6',0.00,6),(0,'7',0.00,7),(0,'8',0.00,8);
 /*!40000 ALTER TABLE `predio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1139,4 +1230,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-27 12:20:32
+-- Dump completed on 2017-10-23  9:22:07
