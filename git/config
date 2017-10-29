@@ -10,7 +10,7 @@
 	remote = origin
 	merge = refs/heads/master
 [credential]
-	helper = netrc -f ~/.netrc.gpg -v
+#	helper = netrc -f ~/.netrc.gpg -v
 [user]
 	mail = ktz51tz@gmail.com
 	name = ktz51tz
