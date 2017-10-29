@@ -13,8 +13,9 @@ export GPG_AGENT_INFO
 #sync gdrive with 
 cd /projects/source/
 keychain id_rsa
+#source $HOME/.keychain/$HOSTNAME-sh
 #mkdir ~/.keychain/`uname -n`
-#. ~/.keychain/`uname -n` -sh
+. ~/.keychain/`uname -n`-sh
 #eval $(eval ssh-agent)
 #ssh-add
 #ssh-agent bash
