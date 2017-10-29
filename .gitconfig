@@ -1,0 +1,9 @@
+[user]
+	name = ktz51tz
+	mail = ktz51tz@gmail.com
+	signingkey = 8240AADB
+	email = ktz51tz@gmail.com
+[commit]
+	gpgsign = true
+[credential]
+	helper = cache --timeout 86400
